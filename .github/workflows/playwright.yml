@@ -15,6 +15,9 @@ jobs:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '7.2'
+    - uses: actions/setup-node@2
+      with:
+        node-version: '14.x'
     - uses: actions/checkout@v3
     - name: Install PHP dependencies
       run: sudo apt-get -y install gcc make autoconf libc-dev pkg-config libmcrypt-dev
@@ -26,5 +29,5 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Directory Permissions
       run: chmod -R 777 app/storage bootstrap
-    - name: Run dev server
-      run: php artisan serve
+
+
