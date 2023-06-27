@@ -16,7 +16,11 @@ jobs:
       with:
         php-version: '7.2'
     - uses: actions/checkout@v3
-    - name: Install Dependencies
+    - name: Install PHP dependencies
+      run: sudo apt-get -y install gcc make autoconf libc-dev pkg-config libmcrypt-dev
+    - name: Install mcrypt
+      run: sudo pecl install mcrypt-1.0.1
+    - name: Install Project dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Directory Permissions
       run: chmod -R 777 app/storage bootstrap
