@@ -73,8 +73,8 @@ module.exports = defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'cd playwright && npm run start',
-    url: 'http://127.0.0.1:8000',
+    command: 'npm run start',
+    url: 'http://localhost:8000',
     //reuseExistingServer: !process.env.CI,
   },
 });
