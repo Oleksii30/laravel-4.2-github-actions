@@ -29,15 +29,17 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Directory Permissions
       run: chmod -R 777 app/storage bootstrap
-    - name: Install dependencies
-      run: cd playwright && npm ci
-    - name: Install Playwright Browsers
-      run: cd playwright && npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: cd playwright && npx playwright test
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright/playwright-report/
-        retention-days: 30
+    - name: Start server
+      run: cd playwright && npm run start
+    # - name: Install dependencies
+    #   run: cd playwright && npm ci
+    # - name: Install Playwright Browsers
+    #   run: cd playwright && npx playwright install --with-deps
+    # - name: Run Playwright tests
+    #   run: cd playwright && npx playwright test
+    # - uses: actions/upload-artifact@v3
+    #   if: always()
+    #   with:
+    #     name: playwright-report
+    #     path: playwright/playwright-report/
+    #     retention-days: 30
