@@ -20,8 +20,8 @@ jobs:
       run: sudo apt-get -y install gcc make autoconf libc-dev pkg-config libmcrypt-dev
     - name: Install mcrypt
       run: sudo pecl install mcrypt-1.0.1
-    - name: ini location
-      run: php --ini
+    - name: add mcrypt extension to php.ini
+      run: echo 'extension=mcrypt.so' >> '/etc/php/7.2/cli/php.ini'
     - name: Install Project dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Directory Permissions
