@@ -32,7 +32,7 @@ jobs:
     - name: Install dependencies
       run: cd playwright && npm ci
     - name: Install Playwright Browsers
-      run: cd playwright && npx playwright install-deps chromium
+      run: cd playwright && npx playwright install --with-deps
     - name: Run Playwright tests
       run: cd playwright && npx playwright test
     - uses: actions/upload-artifact@v3
