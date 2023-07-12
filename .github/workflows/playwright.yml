@@ -29,6 +29,8 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Directory Permissions
       run: chmod -R 777 app/storage bootstrap
+    - name: Change mail service content
+      run: rm ./app/fanangel/FanAngelMail.php && cp ./playwright/files/FanAngelMailMock.php ./app/fanangel/FanAngelMail.php
     - name: Install dependencies
       run: cd playwright && npm ci
     - name: Install Playwright Browsers
